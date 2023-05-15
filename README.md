@@ -1,5 +1,5 @@
 ![Banner](https://github.com/purpl3-yt/Custom-RPC/assets/80628386/a9a85245-b702-4dae-b54c-38722471a92b)
-<h1 align='center'>Custom RPC - Simple</h1>
+<h1 align='center'>Custom RPC - Discord Rich Presence</h1>
 <h2>Installation:  (Linux/Windows)</h2>
 <ul>
 <li><code>pip install pypresence</code></li>
