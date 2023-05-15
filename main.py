@@ -51,8 +51,8 @@ cfg_button2_enable = convert_boolean[str(get_setting('button2_enable', if_option
 
 cfg_webinterface = convert_boolean[str(get_setting('web_interface', if_option_not_exist='true'))]
 
-if cfg_webinterface:
-    Thread(target=start_web_interface()).start()
+#if cfg_webinterface:
+    #Thread(target=start_web_interface()).run()
 
 def make_button_dict():
     output = []
@@ -90,8 +90,8 @@ def update(start_time: int = 10):
         state=cfg_state,
         start=start_time,
         buttons=button_dict)
-
+print('123')
 while True:
-    update (cfg_start_time)
+    update(cfg_start_time)
 
     time.sleep(60)
