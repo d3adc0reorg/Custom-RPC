@@ -90,7 +90,7 @@ def update(start_time: int = 10):
         state=cfg_state,
         start=start_time,
         buttons=button_dict)
-print('123')
+        
 while True:
     update(cfg_start_time)
 
