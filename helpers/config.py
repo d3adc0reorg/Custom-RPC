@@ -31,4 +31,5 @@ def get_setting(key, section = 'main', if_option_not_exist = None):
         return config.get(section, key)
     
 def get_items(section = 'main'):
+    read_config()
     return config.items(section)

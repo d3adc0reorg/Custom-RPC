@@ -56,6 +56,6 @@ def start_web_interface():
     def get_logo():
         return send_file('webinterface/static/logo.png')
 
-    app.run('localhost', 5000, debug=True)
+    app.run('localhost', 5000, debug=False)
 
 #start_web_interface()

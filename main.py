@@ -1,7 +1,8 @@
 from helpers.config import set_setting, get_setting
 from web_interface import start_web_interface
 from pypresence import Presence
-from threading import Thread
+import threading
+import signal
 import os, sys
 import time
 
@@ -27,7 +28,7 @@ if not os.path.isfile('config.ini'):
     set_setting('web_interface', 'true')
 
 
-RPC = Presence ('1107688443393347604')
+RPC = Presence('1107688443393347604')
 print('Connecting to discord...') 
 
 try: RPC.connect()
@@ -52,12 +53,8 @@ cfg_button2_enable = convert_boolean[str(get_setting('button2_enable', if_option
 cfg_webinterface = convert_boolean[str(get_setting('web_interface', if_option_not_exist='true'))]
 
 if cfg_webinterface:
-    class webinterface(Thread):
-        def run(self):
-            start_web_interface()
-
-    webinterface_thread = webinterface()
-    webinterface_thread.start()
+    flask_thread = threading.Thread(target=start_web_interface)
+    flask_thread.start()
 
 def make_button_dict():
     output = []
