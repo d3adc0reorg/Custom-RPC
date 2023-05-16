@@ -51,8 +51,13 @@ cfg_button2_enable = convert_boolean[str(get_setting('button2_enable', if_option
 
 cfg_webinterface = convert_boolean[str(get_setting('web_interface', if_option_not_exist='true'))]
 
-#if cfg_webinterface:
-    #Thread(target=start_web_interface()).run()
+if cfg_webinterface:
+    class webinterface(Thread):
+        def run(self):
+            start_web_interface()
+
+    webinterface_thread = webinterface()
+    webinterface_thread.start()
 
 def make_button_dict():
     output = []
