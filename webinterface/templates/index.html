@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/logo">
     <title>Custom RPC</title>
 </head>
 
@@ -76,30 +77,30 @@ h1 {
 </style>
 
 <body>
-    <h1>Custom RPC, By <a href="https://github.com/purpl3-yt" style="color: #8894af;text-decoration: none;" target="_blank">Purpl3</a></h1>
-    <h1>Settings: </h1>
-    {% for setting in settings %}
-        <h1 style="font-family: 'monospace';font-size: medium;">{{ setting[0] }}: {{ setting[1] }}</h1>
-    {% endfor %}
-
-    <h1>Preview: </h1>
-    <div class="preview">
-        <img src="/logo" style="height: 10rem;border-radius: 20px;"/>
-        <h1 style="margin-top: 0;margin-left: 1rem;">Custom RPC</h1>
-        <h1 style="margin-top: 2rem;margin-left: 1rem;">{{ state }}</h1>
-        <h1 style="margin-top: 4rem;margin-left: 1rem;">{{ start_time }}:??:?? elapsed</h1>
-
-        {% if button1_enable == 'true' %}
+    {% if status == 'none' %}
+        <h1>Custom RPC, By <a href="https://github.com/purpl3-yt" style="color: #8894af;text-decoration: none;" target="_blank">Purpl3</a></h1>
+        <h1>Settings: </h1>
+        {% for setting in settings %}
+            <h1 style="font-family: 'monospace';font-size: medium;">{{ setting[0] }}: {{ setting[1] }}</h1>
+        {% endfor %}
+        
+        <h1>Preview: </h1>
+        <div class="preview">
+            <img src="/logo" style="height: 10rem;border-radius: 20px;"/>
+            <h1 style="margin-top: 0;margin-left: 1rem;">Custom RPC</h1>
+            <h1 style="margin-top: 2rem;margin-left: 1rem;">{{ state }}</h1>
+            <h1 style="margin-top: 4rem;margin-left: 1rem;">??:??:?? elapsed</h1>
+            
+            {% if button1_enable == 'true' %}
             <button><a href="{{ button1_url }}" target="_blank">{{ button1_label }}</a></button>
-        {% endif %}
-
-        {% if button2_enable == 'true' %}
+            {% endif %}
+            
+            {% if button2_enable == 'true' %}
             <button><a href="{{ button2_url }}" target="_blank">{{ button2_label }}</a></button>
-        {% endif %}
-
-        
-        
-    </div>
+            {% endif %}
+            
+        </div>
+    {% endif %}
 
 </body>
 </html>

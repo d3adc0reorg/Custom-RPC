@@ -1,7 +1,8 @@
 from flask import Flask, render_template, send_file
 from helpers.config import get_items, get_setting
 import logging
-
+from contextlib import redirect_stdout
+import os
 
 app = Flask(__name__, template_folder='webinterface/templates')
 
@@ -19,7 +20,7 @@ def start_web_interface():
             if setting[0] == 'state':
                 state = setting[1]
 
-            elif setting[0] == 'start_time':
+            elif setting[0] == 'start_time_seconds':
                 start_time = setting[1]
 
             elif setting[0] == 'button1_enable':
@@ -50,12 +51,21 @@ def start_web_interface():
                                
                                button2_enable=button2_enable,
                                button2_label=button2_label,
-                               button2_url=button2_url)
+                               button2_url=button2_url, status='none')
 
     @app.route('/logo')
     def get_logo():
         return send_file('webinterface/static/logo.png')
+    
+    exception = ''
 
-    app.run('localhost', 5000, debug=False)
-
+    with open(os.devnull, 'w') as devnull:
+        with redirect_stdout(devnull):
+            try:app.run('localhost', 5000, debug=False, use_reloader=False)
+            except Exception as e:
+                exception = str(e)
+    
+    if exception != '':
+        print('Web interface error: ' + exception)
+        
 #start_web_interface()
