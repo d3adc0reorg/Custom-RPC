@@ -3,7 +3,7 @@ from helpers.config import get_items, get_setting
 import logging
 from contextlib import redirect_stdout
 import os
-#test
+
 app = Flask(__name__, template_folder='webinterface/templates')
 
 app.logger.disabled = True
