@@ -7,4 +7,4 @@
 <li><h3>Cd into program directory and write: <code>python main.py</code></h3></li>
 </ul>
 
-<h2>For configure check config.ini file!</h2>
+<h2>For configure check <a href='https://github.com/vidomnia/Custom-RPC/wiki'>wiki</a>!</h2>
