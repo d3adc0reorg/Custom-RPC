@@ -61,7 +61,8 @@ def start_web_interface():
 
     with open(os.devnull, 'w') as devnull:
         with redirect_stdout(devnull):
-            try:app.run('localhost', 5000, debug=False, use_reloader=False)
+            try:
+                app.run('localhost', 5000, debug=False, use_reloader=False)
             except Exception as e:
                 exception = str(e)
     
